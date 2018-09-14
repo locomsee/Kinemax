@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/regbk"
+    tools:context=".MainActivity">
+
+     <LinearLayout
+         android:orientation="vertical"
+         android:layout_centerHorizontal="true"
+         android:layout_centerVertical="true"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:textColorHint="#f8fafa"
+        android:textColor="#f8fafa"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_email2"
+        android:inputType="textEmailAddress"
+        android:hint="Enter Email Address"
+         />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:textColor="#f8fafa"
+        android:textColorHint="#f8fafa"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_pass2"
+        android:inputType="textPassword"
+        android:hint="Password"
+       />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="#f7f8fa"
+        android:textSize="20sp"
+        android:text="Register"
+        android:background="#000"
+
+        />
+
+    <TextView
+        android:id="@+id/textViewSignUp"
+        android:gravity="center"
+        android:textColor="#afdf35"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Already Registered, Click here" />
+
+     </LinearLayout>
+
+
+
+</RelativeLayout>

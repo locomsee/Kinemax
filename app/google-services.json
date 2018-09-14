@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "676544826257",
+    "firebase_url": "https://kinemax-a68c1.firebaseio.com",
+    "project_id": "kinemax-a68c1",
+    "storage_bucket": "kinemax-a68c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676544826257:android:713a27e3d4051bb9",
+        "android_client_info": {
+          "package_name": "com.example.collo.kinemax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676544826257-ua8fqdiavvd7k8dqf8nslef862p07pst.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.collo.kinemax",
+            "certificate_hash": "634cafb904b0a253d78afdb07fe478076aefd270"
+          }
+        },
+        {
+          "client_id": "676544826257-3ov5tot5jo9ebb964v168bsths0cju47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUaAADR0VCWJ2_UQxRrDkpU6Re3OF21yk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676544826257-3ov5tot5jo9ebb964v168bsths0cju47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
