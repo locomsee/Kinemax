@@ -22,9 +22,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.NumberFormat;
+
+import static com.google.firebase.database.FirebaseDatabase.*;
 
 public class BookingActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -50,7 +53,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //Initializing Database
-        mDatabase= FirebaseDatabase.getInstance().getReference("Tickets").push();//getting unique id
+        mDatabase=FirebaseDatabase.getInstance().getReference("Tickets").push();//getting unique id
 
 
 
@@ -81,10 +84,8 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     }
-
+         //getting current user
     public void currentUser(){
-
-
 
         mDatabase.child("UserEmail").setValue(Useremail);//useremail
 
@@ -98,61 +99,45 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
         //Message on click
         Toast.makeText(getApplicationContext(),"Please wait...",Toast.LENGTH_SHORT).show();
 
-       //Bookseat method activated onclick
+       //Validation method activated onclick
 
-
-          if(seatNo==1){
-
+        if(seatNo==1){
              validSeat();
+        }
+       if(seatNo==2){
 
-
-          }
-
-       /* if(seatNo==2){
-
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==3){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==4){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==5){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==6){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==7){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==8){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==9){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==10){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==11){
-            currentUser();
-            BookSeat();
+            validSeat();
         }
         if(seatNo==12){
-            currentUser();
-            BookSeat();
-        }*/
+            validSeat();
+        }
 
 
     }
@@ -174,12 +159,10 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
                 } else {
                     //Data uploaded successfully on the server
 
-
-
                     //Book dialog Box
                     AlertDialog alertDialog = new AlertDialog.Builder(BookingActivity.this).create();
                     alertDialog.setTitle("Ticket Information");
-                    alertDialog.setMessage("You have succesfully booked Seat Number " + seatNo);
+                    alertDialog.setMessage("You have succesfully booked Seat Number " + seatNo +". You are required to pay Ksh 1000 in the next 15 minutes or the reservation will be revoked");
                     alertDialog.setIcon(R.drawable.bookicon);
 
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
@@ -201,30 +184,28 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
          }
 
          public  boolean validSeat(){
-             mDatabase= FirebaseDatabase.getInstance().getReference().child("Tickets");
+             //Seat validation in db
+             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+             Query userNameQuery = rootRef.child("Tickets").orderByChild("seatNo").equalTo(seatNo);
+             ValueEventListener eventListener = new ValueEventListener() {
+                 @Override
+                 public void onDataChange(DataSnapshot dataSnapshot) {
+                     if(dataSnapshot.exists()) {
+                         //seat already booked display
+                         Toast.makeText(getApplicationContext(), "Sorry the seat is already taken, look for other seats", Toast.LENGTH_LONG).show();
+                     }else {
+                         //not booked do, the following
+                         BookSeat();
+                         currentUser();
+                     }
+                 }
 
-        mDatabase.orderByChild("seatNo").equalTo(seatNo).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.exists()) {
-                    //username exist
-                    Toast.makeText(getApplicationContext(), "Sorry the seat is already bought", Toast.LENGTH_LONG).show();
-                }else {
-                    BookSeat();
-                    currentUser();
-                }
-
-
-
-
-            }
-
-            @Override
+                 @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        };
+             userNameQuery.addListenerForSingleValueEvent(eventListener);
 
           return true;
          }

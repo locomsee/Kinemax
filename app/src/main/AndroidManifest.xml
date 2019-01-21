@@ -3,6 +3,10 @@
     package="com.example.collo.kinemax">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
 
     <application
         android:allowBackup="true"
@@ -29,7 +33,10 @@
         <activity android:name=".TrendingActivity" />
         <activity android:name=".TrendingDetailActivity" />
         <activity android:name=".VideoActivity" />
-        <activity android:name=".BookingActivity"></activity>
+        <activity android:name=".BookingActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".DataRetrieved"></activity>
     </application>
 
 </manifest>

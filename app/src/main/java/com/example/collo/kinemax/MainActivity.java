@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressDialog=new ProgressDialog(this);
         buttonRegister=(Button)findViewById(R.id.buttonRegister);
         editTextEmail=(EditText)findViewById(R.id.editTextEmail);
-        editTextPassword=(EditText)findViewById(R.id.editTextPassword);
+       editTextPassword=(EditText)findViewById(R.id.editTextPassword);
         TextViewSignUp=(TextView) findViewById(R.id.textViewSignUp);
 
 
@@ -58,25 +58,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
+
         if (TextUtils.isEmpty(email)) {
              //if email address is empty
-            Toast.makeText(this,"Please enter your email address", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please enter email address", Toast.LENGTH_LONG).show();
             //stop function from executing further
             return;
         }
-
         if (TextUtils.isEmpty(password)) {
-
-            //if pwd is empty
+            //if phone is empty
             Toast.makeText(this,"Please enter password", Toast.LENGTH_LONG).show();
             //stop function from executing further
             return;
         }
+
+        if (TextUtils.isEmpty(password) || password.length() < 6 ){
+
+            //if pwd is less than 6 characters
+            editTextPassword.setError("You must have a minimum of six characters as your password");
+            //stop function from executing further
+            return;
+        }
         //if validations are ok we will display progress bar
-        progressDialog.setMessage("Keep Calm Registering User");
+        progressDialog.setMessage("Keep calm registeration in progress");
         progressDialog.show();
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -88,9 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(new Intent(getApplicationContext(),HomeActivity.class));
 
 
-                            Toast.makeText(MainActivity.this, "User ako ndani",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Registration successful",Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(MainActivity.this, "Ooops User hajaingia",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Enter user email correctly",Toast.LENGTH_LONG).show();
                     }}
                 });
     }

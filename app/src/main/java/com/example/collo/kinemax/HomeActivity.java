@@ -13,6 +13,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView Trending;
     private ImageView Trailer;
     private ImageView Book;
+    private ImageView Payment;
 
 
     @Override
@@ -26,12 +27,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Trending=(ImageView)findViewById(R.id.Trending);
         Trailer=(ImageView)findViewById(R.id.trailer);
         Book=(ImageView)findViewById(R.id.imgbk);
+        Payment=(ImageView)findViewById(R.id.PaymentDetails);
+
 
 
         profileActivity.setOnClickListener(this);
         Trending.setOnClickListener(this);
         Trailer.setOnClickListener(this);
         Book.setOnClickListener(this);
+        Payment.setOnClickListener(this);
 
 
     }
@@ -55,6 +59,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if(v == Book) {
             Intent bk= new Intent(getApplicationContext(), BookingActivity.class);
             startActivity(bk);
+        }
+        if(v == Payment) {
+            Intent jk= new Intent(getApplicationContext(), PaymentActivity.class);
+            startActivity(jk);
         }
 
 

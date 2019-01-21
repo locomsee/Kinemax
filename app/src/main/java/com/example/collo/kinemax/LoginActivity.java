@@ -70,8 +70,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //stop function from executing further
             return;
         }
+        if (TextUtils.isEmpty(password) || password.length() < 6 ){
+
+            //if pwd is less than 6 characters
+            editTextPassword.setError("You must have a minimum of six characters as your password");
+            //stop function from executing further
+            return;
+        }
         //if validations are ok we will display progress bar
-        progressDialog.setMessage("Keep Calm Logging in");
+        progressDialog.setMessage("Keep calm authenticating...");
         progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(email,password)
@@ -84,6 +91,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             finish();
                             startActivity(new Intent(getApplicationContext(),HomeActivity.class));
 
+                        }else {
+                            progressDialog.setMessage("User not found or incorrect email, retry");
+                            progressDialog.show();
                         }
 
                     }
