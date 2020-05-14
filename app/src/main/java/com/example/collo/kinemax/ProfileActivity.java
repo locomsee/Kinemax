@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-       // textViewUserEmail.setText("Welcome "+user.getEmail());
+        textViewUserEmail.setText("Dear "+user.getEmail()+", Thank you for using Kinemax Application");
         buttonLogOut=(Button)findViewById(R.id.buttonLogOut);
 
         buttonLogOut.setOnClickListener(this);
@@ -82,11 +82,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-    @Override
+   /* @Override
     protected void onStart() {
         super.onStart();
 
-//
+
         mref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -107,14 +107,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
 
 
-              /* for(DataSnapshot ds:dataSnapshot.getChildren()) {
+               for(DataSnapshot ds:dataSnapshot.getChildren()) {
                     UserInfo userInfo =ds.getValue(UserInfo.class);
 
                     userdetail.add(userInfo);
 
                      }
                 UserAdapter userAdapter=new UserAdapter(ProfileActivity.this, userdetail);
-                DetailList.setAdapter(userAdapter);*/
+                DetailList.setAdapter(userAdapter);
 
 
 
@@ -125,6 +125,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
     }
+
+    */
 
     @Override
     public void onClick(View v) {

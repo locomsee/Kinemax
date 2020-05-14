@@ -57,7 +57,7 @@ public class TrendingDetailActivity extends AppCompatActivity {
         mDetailTv=findViewById(R.id.descriptionTv);
         mImageIv=findViewById(R.id.imageView);
         mSaveBtn = findViewById(R.id.saveBtn);
-        mShareBtn = findViewById(R.id.shareBtn);
+       // mShareBtn = findViewById(R.id.shareBtn);
         mWallBtn = findViewById(R.id.wallBtn);
 
 
@@ -123,7 +123,7 @@ public class TrendingDetailActivity extends AppCompatActivity {
     }
 
 
-    private void shareImage() {
+   /* private void shareImage() {
         try {
             //get title and description and save in string s
             String s = mTitleTv.getText().toString() + "\n" + mDetailTv.getText().toString();
@@ -145,7 +145,7 @@ public class TrendingDetailActivity extends AppCompatActivity {
         catch (Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
 
 

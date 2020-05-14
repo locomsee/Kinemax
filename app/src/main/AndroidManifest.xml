@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +36,8 @@
         <activity android:name=".BookingActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".VideoActivity" />
-        <activity android:name=".DataRetrieved"></activity>
+        <activity android:name=".DataRetrieved" />
+        <activity android:name=".ForgotPassword"></activity>
     </application>
 
 </manifest>

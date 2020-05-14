@@ -46,7 +46,7 @@ public class TrendingActivity extends AppCompatActivity {
 
         //action support
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Trending in Entertainment");
+        actionBar.setTitle("Featured Movies");
 
          mSharedPref=getSharedPreferences("SortSettings",MODE_PRIVATE);
          String mSorting=mSharedPref.getString("Sort","Newest"); //where if no settings

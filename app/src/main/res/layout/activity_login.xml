@@ -53,6 +53,16 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/textforgotpassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Forgot password?, Click here"
+            android:textColor="#0253f4"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/textViewSignIn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

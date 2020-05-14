@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         //if validations are ok we will display progress bar
-        progressDialog.setMessage("Keep calm registeration in progress");
+        progressDialog.setMessage("Keep calm registration in progress");
         progressDialog.show();
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
